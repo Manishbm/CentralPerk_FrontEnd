@@ -1,0 +1,33 @@
+<div class="container-fluid" style="height: 280px; text-align: center;">
+    <img style="height: 280px; width: fit-content;" src="https://usupdates.com/wp-content/uploads/2019/09/The-Friends-Central-Perk.jpg" alt="">
+</div>
+<div *ngIf="foods.length >0">
+    <h2>Food List</h2>
+    <h5>Total Amount : {{addPrice}}</h5>
+</div>
+<div >
+   <table class="table table-hover">
+    <thead>
+        <tr >
+            <th > Food Name </th>
+            <th > Vegetarian </th>
+            <th > Price </th>
+            <th >IMAGE</th>
+            <th >ORDER</th>
+        </tr>
+        <tr *ngFor="let food of foods">
+            <td>
+                <span [attr.title]="food.description" data-toggle="tooltip" data-placement="top">{{food.foodName}}</span>
+            </td>
+            <td>{{food.vegetarian}}</td>
+            <td>{{food.price}}</td>
+            <td><img style="height:100px; width:100px;" src="{{food.image}}" alt=""></td>
+            <td><button class="btn btn-primary btn-sm" (click)="addCart(food.price)"> +</button>
+            <button class="btn btn-primary btn-sm" (click)="removeCart(food.price)">-</button></td>
+        </tr>
+    </thead>
+   </table>
+</div>
+<div *ngIf="foods.length ===0">
+<p> No foods are available</p>
+</div>

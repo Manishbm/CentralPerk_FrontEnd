@@ -1,0 +1,50 @@
+
+<h2 *ngIf="userResult" style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;">Hello {{user}} Welcome to Central Perk </h2>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header" style="background-color: aquamarine;">
+                Sign Up
+              </div>
+              <div class="card-body">
+                <form [formGroup]="userForm" (ngSubmit)="addUser()" class="card-body" >
+                    <div class="form-group">
+                        <label for="userName">Username:</label>
+                        <input type="text" class="form-control" id="userName" formControlName="userName" placeholder="Enter username">
+                      </div>
+                      <div class="form-group">
+                        <label for="emailId">Email:</label>
+                        <input type="email" class="form-control" id="emailId" formControlName="emailId" placeholder="Enter email ID">
+                      </div>
+                      <div class="form-group">
+                        <label for="phoneNo">Phone Number:</label>
+                        <input type="text" class="form-control" id="phoneNo" formControlName="phoneNo" placeholder="Enter Phone Number">
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter Password">
+                      </div>
+                      <div  class="form-group">
+                        <label for="role">Role:</label>
+                        <select id="role" formControlName="role" class="form-control">
+                          <option value="admin">Admin</option>
+                          <option value="user">User</option>
+                        </select>
+                      </div>
+                      <button type="button" class="btn btn-outline-primary" type="submit" [disabled]="userForm.invalid">Add User</button>
+                    </form>
+                    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    
+
+
+
+   

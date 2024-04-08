@@ -1,0 +1,32 @@
+<div class="container-fluid" style="height: 280px; text-align: center;">
+    <img style="height: 280px; width: fit-content;" src="https://static.hollywoodreporter.com/sites/default/files/2014/09/central_perk_popup_main.jpg" alt="">
+    </div>
+    <div *ngIf="drinks.length >0">
+        <h2>Drink List</h2>
+        <h5>Total Amount is {{addPrice}}</h5>
+        <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col"> Drink Name </th>
+                    <th scope="col"> Drink Type </th>
+                    <th scope="col"> Brand </th>
+                    <th scope="col"> Alcohalic </th>
+                    <th scope="col">Price</th>
+                    <th scope="col">ORDER</th>
+                </tr>
+                <tr *ngFor="let drink of drinks">
+                    <td>{{drink.nameOfDrink}}</td>
+                    <td>{{drink.typeOfDrink}}</td>
+                    <td>{{drink.brand}}</td>
+                    <td>{{drink.alcohalic}}</td>
+                    <td>{{drink.price}}</td>
+                    <td><button class="btn btn-primary btn-sm" (click)="addCart(drink.price)"> 
+                +</button></td>
+                    <td><button class="btn btn-primary btn-sm" (click)="removeCart(drink.price)">-</button></td>
+                </tr>
+            </thead>
+        </table>
+        </div>
+
+
+
