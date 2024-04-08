@@ -11,6 +11,7 @@ import { DrinkServiceComponent } from './drink-service/drink-service.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { AddFoodComponent } from './add-food/add-food.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     FoodServiceComponent,
     DrinkServiceComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    AddFoodComponent
   ],
   imports: [
     BrowserModule,

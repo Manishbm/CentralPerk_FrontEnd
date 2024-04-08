@@ -1,0 +1,51 @@
+<h4></h4>
+<form [formGroup]="foodDataForm" (ngSubmit)="addFood()">
+
+</form>
+ <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header" style="background-color: aquamarine;">
+                Add Food 
+              </div>
+              <div class="card-body">
+                <form [formGroup]="foodDataForm" (ngSubmit)="addFood()" class="card-body" >
+                    <div class="form-group">
+                        <label for="foodName">Food Name:</label>
+                        <input type="text" class="form-control" id="foodName" formControlName="foodName" placeholder="Enter foodName">
+                      </div>
+                      <div class="form-group">
+                        <label for="description">Description:</label>
+                        <input type="description" class="form-control" id="description" formControlName="description" placeholder="Enter Description">
+                      </div>
+                      <div class="form-group">
+                        <label for="price">Price:</label>
+                        <input type="number" class="form-control" id="price" formControlName="price" placeholder="Enter Price">
+                      </div>
+                      <div class="form-group">
+                        <label for="image">Image:</label>
+                        <input type="text" class="form-control" id="image" formControlName="image" placeholder="Enter image Url">
+                      </div>
+                      <div  class="form-group">
+                        <label for="vegetarian">vegetarian:</label>
+                        <select id="vegetarian" formControlName="vegetarian" class="form-control">
+                          <option value= true>True</option>
+                          <option value=false>False</option>
+                        </select>
+                      </div>
+                      <button type="button" class="btn btn-outline-primary" type="submit" [disabled]="foodDataForm.invalid">Add Food</button>
+                    </form>
+                    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    
+
+
+
+   
