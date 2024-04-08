@@ -9,7 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddFoodComponent implements OnInit {
 url:string='http://localhost:8080/food/add';
-foodName:string | undefined;
+foodNames:any ;
+foodresult :any;
 foodDataForm : FormGroup;
   constructor(private http : HttpClient , private formBuilder : FormBuilder) {
     this.foodDataForm = formBuilder.group({
@@ -26,8 +27,9 @@ addFood():void{
   this.http.post<any>(this.url,this.foodDataForm.value).subscribe(
     Response => {
 console.log('food added to database :'+ Response);
-this.foodName = this.foodDataForm.value.foodName;
+this.foodNames = this.foodDataForm.value.foodName;
 this.foodDataForm.reset();
+this.foodresult = true;
     },error =>{
       console.log('Oooops please enter again :'+error);
     }

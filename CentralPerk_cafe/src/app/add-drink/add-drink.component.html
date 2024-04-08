@@ -1,37 +1,37 @@
-<h3 *ngIf="foodresult" style="text-align: center;">{{foodNames}} is added successfully</h3>
+<h3 *ngIf="drinkresult" style="text-align: center;">{{drinkName}} is added successfully</h3>
  <div class="container mt-5">
         <div class="row justify-content-center">
           <div class="col-md-6">
             <div class="card">
               <div class="card-header" style="background-color: aquamarine;">
-                Add Food 
+                Add Drink 
               </div>
               <div class="card-body">
-                <form [formGroup]="foodDataForm" (ngSubmit)="addFood()" class="card-body" >
+                <form [formGroup]="drinkForm" (ngSubmit)="addDrink()" class="card-body" >
                     <div class="form-group">
-                        <label for="foodName">Food Name:</label>
-                        <input type="text" class="form-control" id="foodName" formControlName="foodName" placeholder="Enter foodName">
+                        <label for="nameOfDrink">Drink Name:</label>
+                        <input type="text" class="form-control" id="nameOfDrink" formControlName="nameOfDrink" placeholder="Enter nameOfDrink">
                       </div>
                       <div class="form-group">
-                        <label for="description">Description:</label>
-                        <input type="text" class="form-control" id="description" formControlName="description" placeholder="Enter Description">
+                        <label for="brand">Brand:</label>
+                        <input type="text" class="form-control" id="brand" formControlName="brand" placeholder="Enter Brand">
                       </div>
                       <div class="form-group">
                         <label for="price">Price:</label>
                         <input type="number" class="form-control" id="price" formControlName="price" placeholder="Enter Price">
                       </div>
                       <div class="form-group">
-                        <label for="image">Image:</label>
-                        <input type="text" class="form-control" id="image" formControlName="image" placeholder="Enter image Url">
+                        <label for="typeOfDrink">Type Of Drink:</label>
+                        <input type="text" class="form-control" id="typeOfDrink" formControlName="typeOfDrink" placeholder="Enter Type Of Drink">
                       </div>
                       <div  class="form-group">
-                        <label for="vegetarian">vegetarian:</label>
-                        <select id="vegetarian" formControlName="vegetarian" class="form-control">
+                        <label for="alcohalic">alcohalic:</label>
+                        <select id="alcohalic" formControlName="alcohalic" class="form-control">
                           <option value= true>True</option>
                           <option value=false>False</option>
                         </select>
                       </div>
-                      <button type="button" class="btn btn-outline-primary" type="submit" [disabled]="foodDataForm.invalid">Add Food</button>
+                      <button type="button" class="btn btn-outline-primary" type="submit" [disabled]="drinkForm.invalid">Add Drink</button>
                     </form>
                     
               </div>
