@@ -31,6 +31,7 @@ addUser(){
         this.userResult=true;
         this.user = this.userForm.value.userName;
         console.log('user added successfully',response)
+        this.userForm.reset();
       },
       ( error: any) =>{
         console.log('error adding user ',error)
