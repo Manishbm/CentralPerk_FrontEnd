@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
  loginForm!: FormGroup;
  loginResult : any ;
  user : any;
+ userRole : any ;
   constructor(private formBuilder: FormBuilder , private loginService : LoginServiceService , private httpClient : HttpClient) { }
  
   ngOnInit(): void {
@@ -23,6 +24,7 @@ this.loginForm = this.formBuilder.group({
   submit(){
     this.login();
     this.isAdmin();
+    this.loginForm.reset();
   }
   login() : boolean{
     if(this.loginForm.valid){
@@ -56,6 +58,11 @@ isAdmin(){
   this.httpClient.get<any>(apiUrl).subscribe(
     result =>{
       console.log('admin results :' + result);
+      if(result === true){
+        this.userRole='admin';
+      }else{
+        this.userRole='user';
+      }
       this.loginService.setAdmin(result);
     },error =>{
       console.log(error);
