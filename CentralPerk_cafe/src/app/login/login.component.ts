@@ -20,7 +20,10 @@ this.loginForm = this.formBuilder.group({
   password : ['',Validators.required]
 })
   }
-  @Output() message = new EventEmitter<string>();
+  submit(){
+    this.login();
+    this.isAdmin();
+  }
   login() : boolean{
     if(this.loginForm.valid){
       const userName = this.loginForm.value.userName;
@@ -33,8 +36,9 @@ this.loginForm = this.formBuilder.group({
     this.httpClient.get(apiUrl).subscribe(
       (response : any) =>{
         console.log(response);
-        this.loginResult = response
-        this.message.emit(response);
+        this.loginResult = true;
+        this.loginService.setLoginResult(response);
+        this.loginService.setUser(userName);
         return response;
       },
       (error) =>{
@@ -44,5 +48,19 @@ this.loginForm = this.formBuilder.group({
     }
     return false;
   }
-
+isAdmin(){
+  if(this.loginForm.valid){
+    const userName = this.loginForm.value.userName;
+    const password = this.loginForm.value.password;
+  const apiUrl = `http://localhost:8080/user/isAdmin?userName=${userName}&password=${password}`;
+  this.httpClient.get<any>(apiUrl).subscribe(
+    result =>{
+      console.log('admin results :' + result);
+      this.loginService.setAdmin(result);
+    },error =>{
+      console.log(error);
+    }
+  )
+  }
+}
 }

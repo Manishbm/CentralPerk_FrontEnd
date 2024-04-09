@@ -9,7 +9,7 @@
             Login
           </div>
           <div class="card-body">
-            <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <form [formGroup]="loginForm" (ngSubmit)="submit()">
               <div class="form-group">
                 <label for="userName">Username</label>
                 <input type="text" class="form-control" id="userName" formControlName="userName" placeholder="Enter username">

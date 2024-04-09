@@ -12,10 +12,10 @@
 <div class="container-fluid" style="height: 50px; background-color: rgb(227, 236, 94); text-align: justify;">
   <nav>
   <button class="btn btn-outline-secondary" routerLink="/">Home</button>
-  <button  type="button" class="btn btn-outline-secondary" routerLink="/fetch-food">Food</button>
-  <button class="btn btn-outline-secondary" routerLink="/addFood">Add Food</button>
-  <button  type="button" class="btn btn-outline-secondary" routerLink="/fetch-drink">Drinks</button>
-  <button class="btn btn-outline-secondary" routerLink="/addDrink">Add Drink</button>
+  <button *ngIf="loginResult" type="button" class="btn btn-outline-secondary" routerLink="/fetch-food">Food</button>
+  <button *ngIf="admin" class="btn btn-outline-secondary" routerLink="/addFood">Add Food</button>
+  <button *ngIf="loginResult" type="button" class="btn btn-outline-secondary" routerLink="/fetch-drink">Drinks</button>
+  <button *ngIf="admin" class="btn btn-outline-secondary" routerLink="/addDrink">Add Drink</button>
   <button class="btn btn-outline-secondary" routerLink="/signup">Sign Up</button>
   <button class="btn btn-outline-secondary" routerLink="/login">Login</button>
 </nav>
