@@ -22,7 +22,7 @@ foodData : any;
 isModified =false;
   constructor(private http : HttpClient , private formBuilder : FormBuilder , private modifyService : ModifyFoodService ) {
     this.modifyDataForm = formBuilder.group({
-      vegetarian:[true,Validators.required],
+      vegetarian:[null,Validators.required],
       foodName:['',Validators.required],
       price:[null,Validators.required],
       description:['',Validators.required],
@@ -41,7 +41,6 @@ this.vegetarian = jsonResponse.vegetarian;
 this.price=jsonResponse.price;
 this.description=jsonResponse.description;
 this.image=jsonResponse.image;
-console.log(this.foodName +'food name');
   }
 )
 
