@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodService } from '../food.service';
 import { Food } from '../food.model';
-import { TooltipComponent } from '@angular/material';
+import { MatDialog, TooltipComponent } from '@angular/material';
 import { LoginServiceService } from '../login-service.service';
 import { HttpClient } from '@angular/common/http';
 import { ModifyFoodService } from '../modify-food.service';
-import { BehaviorSubject } from 'rxjs';
-import { ModifyFoodComponent } from '../modify-food/modify-food.component';
+import { AlertService } from '../alert.service';
+
 
 @Component({
   selector: 'app-food-service',
@@ -18,7 +18,13 @@ foods : Food[]=[]
 addPrice : number =0;
 admin : any =false;
 fetchFood : any;
-  constructor( private foodService : FoodService , private loginService : LoginServiceService,private http : HttpClient , private modifyService : ModifyFoodService) { }
+isDeleted=false;
+  constructor( private foodService : FoodService , 
+    private loginService : LoginServiceService,
+    private http : HttpClient ,
+     private modifyService : ModifyFoodService,
+     private alert : AlertService
+    ) { }
 
   ngOnInit(): void {
     this.fetchFoods();
@@ -59,8 +65,22 @@ this.http.get(url).subscribe(
   }
 )
    }
-   cancel(id:any):any{
-
+   cancel(id:any):void{
+   if(this.alert.confirm('are you sure ?')){
+    const url = 'http://localhost:8080/food/deleteById/'+id;
+    console.log('cancel'+url);
+    this.http.delete(url).subscribe(
+      result =>{
+        console.log('deleted successfully'+result);
+        this.isDeleted=true;
+      },error =>{
+        console.log('unable to delete it');
+      }
+    )
+    this.foods = this.foods.filter(food => food.id !== id);
+   }else{
+    console.log('request terminated');
+   }
    }
  
 
