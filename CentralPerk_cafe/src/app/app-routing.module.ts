@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { AddFoodComponent } from './add-food/add-food.component';
 import { AddDrinkComponent } from './add-drink/add-drink.component';
+import { ModifyFoodComponent } from './modify-food/modify-food.component';
 
 const routes: Routes = [
   {path:'fetch-food',component:FoodServiceComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignUpComponent},
   {path:'addFood',component:AddFoodComponent},
-  {path:'addDrink',component:AddDrinkComponent}
+  {path:'addDrink',component:AddDrinkComponent},
+  {path:'modifyFood',component:ModifyFoodComponent}
 ];
 
 @NgModule({

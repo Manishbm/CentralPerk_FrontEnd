@@ -14,6 +14,8 @@
             <th > Price </th>
             <th >IMAGE</th>
             <th >ORDER</th>
+            <th *ngIf="admin">MODIFY</th>
+            <th *ngIf="admin">CANCEL</th>
         </tr>
         <tr *ngFor="let food of foods">
             <td>
@@ -22,8 +24,10 @@
             <td>{{food.vegetarian}}</td>
             <td>{{food.price}}</td>
             <td><img style="height:100px; width:100px;" src="{{food.image}}" alt=""></td>
-            <td><button class="btn btn-primary btn-sm" (click)="addCart(food.price)"> +</button>
+            <td><button class="btn btn-primary btn-sm" (click)="addCart(food.price)">+</button>
             <button class="btn btn-primary btn-sm" (click)="removeCart(food.price)">-</button></td>
+            <td *ngIf="admin"><button class="btn btn-primary btn-sm" (click)="modify(food.id)" routerLink="/modifyFood">Modify</button>
+            <td *ngIf="admin"><button class="btn btn-primary btn-sm" (click)="cancel(food.id)">Cancel</button>
         </tr>
     </thead>
    </table>
@@ -31,3 +35,4 @@
 <div *ngIf="foods.length ===0">
 <p> No foods are available</p>
 </div>
+<router-outlet></router-outlet>
